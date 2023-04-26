@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+//import CounterApp from './counter-app/counterApp';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [data, setData] =  useState(0)
+  function increase(){
+    setData(data + 1)
+  }
+  function decrease(){
+    setData(data - 1)
+    if(data === 0){
+      setData(0)
+    }
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="counter">
+      <h1>counter app</h1>
+      <h2>Count :[ {data} ]</h2>
+      <button onClick={increase}>Increase</button>
+      <button onClick ={decrease}>Decrease</button>
+
+
     </div>
   );
 }
